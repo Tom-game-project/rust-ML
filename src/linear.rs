@@ -1,0 +1,1 @@
+pub mod matrix;//行列計算を可能にする
