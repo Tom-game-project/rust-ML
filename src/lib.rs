@@ -1,6 +1,28 @@
 mod linear;
 use linear::matrix;
 
+//基本的なneural networkの構造を作る
+struct ExampleNetwork{
+
+}
+
+impl ExampleNetwork {
+    fn new(){
+        //初期化
+    }
+    fn predict(&mut self){
+        //予想
+    }
+    fn loss(&mut self){
+        //損失関数
+    }
+    fn gradient(&mut self){
+
+    }
+}
+
+
+
 pub fn add(left: usize, right: usize) -> usize {
     left + right
 }
@@ -42,5 +64,17 @@ mod tests {
             Ok(re)=>{println!("成功: {:?}",re.array)},
             Err(msg)=>{println!("{}",msg)}
         }
+    }
+
+    #[test]
+    fn hashmap_test(){
+        use std::collections::HashMap;
+        let mut contacts:HashMap<&str,matrix::matrix2D> = HashMap::new();
+        let mut arr:Vec<Vec<f32>>=Vec::new();
+        arr.push(vec![1.0,2.0]);
+        arr.push(vec![3.0,4.0]);
+        let mut W1 :matrix::matrix2D= matrix::matrix2D { array: arr, shape: [2,2] };
+        contacts.insert("W1", W1);
+        
     }
 }

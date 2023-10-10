@@ -1,3 +1,5 @@
+
+#[derive(Clone)]//コピーできるようにする
 pub struct matrix2D{
     pub array:Vec<Vec<f32>>,
     pub shape:[usize;2]
@@ -24,6 +26,9 @@ impl matrix2D {
             array: newarr,
             shape: newshape
         }
+    }
+    pub fn sum_axis_zero(&mut self){
+        //次元0を基準に合計の行列を返却する
     }
 }
 
@@ -77,4 +82,19 @@ pub fn inner_product2D(a:Vec<f32>,b:Vec<f32>)->Result<f32,&'static str>{
     }else{
         Err("同じ次元にしてください")
     }
+}
+
+pub fn zeros(shape:[usize;2])->matrix2D{
+    let mut newarr:Vec<Vec<f32>> = Vec::new();
+    for i in 0..shape[0]{
+        let mut row:Vec<f32> = Vec::new();
+        for j in 0..shape[1]{
+            row.push(0.0)
+        }
+        newarr.push(row);
+    }
+    matrix2D::new(
+        newarr,
+        shape
+    )
 }
